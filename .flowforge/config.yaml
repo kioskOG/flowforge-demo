@@ -1,0 +1,9 @@
+# FlowForge configuration for this repository (reviewed like code).
+# Answer a question by replacing `null`, then push to the FlowForge branch: the pull request is
+# regenerated. Delete a line to return to FlowForge's own inference. Never put secrets here.
+version: 1
+answers:
+  services-orders-go.ci.step.format_check: gofmt
+  services-orders-go.deploy.target: none
+  services-pricing-py.deploy.target: none
+  web-storefront.deploy.target: none
