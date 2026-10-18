@@ -1,7 +1,7 @@
 {
   "adapters": [],
   "files": {
-    ".github/workflows/flowforge-ci.yml": "cd3c896f47bcf2c925de6aa012a2cb6a3c99815ddef887c1e2f723a85551581b"
+    ".github/workflows/flowforge-ci.yml": "c7320b91123f3f3333cb0fb3eae69b24b077d46b7f761db9efb70b01cc7aef7f"
   },
   "flowforge": "0.1.0",
   "ledger": {
@@ -590,7 +590,7 @@
       },
       "web-storefront.ci.step.unit_test": {
         "alternatives": [],
-        "confidence": 0.9,
+        "confidence": 1.0,
         "evidence": [
           {
             "excerpt": "  \"engines\": { \"node\": \">=22\" },\n  \"scripts\": {\n    \"test\": \"node --test\",\n    \"build\": \"node scripts/build.js\"\n  }",
@@ -605,12 +605,12 @@
         "field": "web-storefront.ci.step.unit_test",
         "id": "L-bc801c",
         "prod_defining": false,
-        "rationale": "package.json#scripts.test",
-        "source": "detected",
+        "rationale": "set in .flowforge/config.yaml",
+        "source": "user",
         "status": "accepted",
         "value": {
-          "kind": "ref",
-          "ref": "package.json#scripts.test"
+          "kind": "run",
+          "run": "npm test -- --test-reporter=spec"
         }
       },
       "web-storefront.deploy.target": {
@@ -821,9 +821,9 @@
             },
             {
               "command": {
-                "kind": "ref",
-                "ref": "package.json#scripts.test",
-                "run": null,
+                "kind": "run",
+                "ref": null,
+                "run": "npm test -- --test-reporter=spec",
                 "tool": null
               },
               "kind": "unit_test",
@@ -873,6 +873,6 @@
       "severity": "CRITICAL"
     }
   },
-  "pim_hash": "5aa701b9e9117cb8",
+  "pim_hash": "b2bdbca28aed56d7",
   "renderer": "1.1.0"
 }

@@ -6,4 +6,5 @@ answers:
   services-orders-go.ci.step.format_check: gofmt
   services-orders-go.deploy.target: none
   services-pricing-py.deploy.target: none
+  web-storefront.ci.step.unit_test: npm test -- --test-reporter=spec
   web-storefront.deploy.target: none
