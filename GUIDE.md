@@ -25,12 +25,9 @@ Time: about 30 minutes. Every command runs in your terminal on this Mac.
 ## Step 0: Check your tools (1 min)
 
 ```sh
-gh auth status            # should say: Logged in to github.com account devopsmaker
+gh --version              # the GitHub CLI must be installed; you sign in from the portal in step 2
 git --version
 ```
-
-If `gh` isn't logged in, run `gh auth login` first. FlowForge uses this login to read your repository and
-open the PR.
 
 ## Step 1: Put this code on GitHub (2 min)
 
@@ -60,11 +57,26 @@ Your browser opens <http://127.0.0.1:8765>. In the sidebar, the dots for **OPA**
 **zizmor** should be green. Those are the policy engine and the two workflow validators every plan
 passes through.
 
+In the sidebar, under **GitHub account**, check which account FlowForge acts as. It must be the account
+that owns the repository (for you, `kioskOG`). If it isn't:
+
+1. Click **Sign in with GitHub**. A one-time code and the link `https://github.com/login/device` appear.
+2. Open that link **in the browser where you're signed in to GitHub as that account** (Brave, for you),
+   enter the code, and approve. GitHub also asks for the `workflow` permission; FlowForge needs it to
+   commit pipeline files.
+3. The dialog says *Signed in as @kioskOG*, and the sidebar switches to it.
+
+FlowForge can't read your browser's GitHub login directly, because browsers keep each site's session to
+that site. Approving the code is how the browser's account is handed over. Accounts you've signed in to
+before stay in the dropdown, so you can switch between them later. Your terminal's own `gh` account
+isn't changed by the dropdown.
+
 Leave this terminal running and use a second terminal for later commands.
 
 ## Step 3: Plan the pipeline (3 min)
 
-1. On the **Plan** page, pick **GitHub repo** and enter `devopsmaker/flowforge-demo`.
+1. On the **Plan** page, pick **GitHub repo** and enter `<your-account>/flowforge-demo` (e.g.
+   `kioskOG/flowforge-demo`).
 2. Click **Analyze**. It takes a few seconds: FlowForge clones the repo into a temporary directory and
    reads it.
 
@@ -100,7 +112,8 @@ status should now read **Ready**.
 ## Step 5: Go-live check (1 min)
 
 Open the **Go-live** tab. It reads your repository's GitHub settings live: whether Actions is enabled and
-every pinned action is allowed. All checks should show **ready**. If one doesn't, its **Fix on GitHub**
+every pinned action is allowed, and whether **your GitHub login can publish** (write access plus the
+`workflow` permission). All checks should show **ready**. If one doesn't, its **Fix on GitHub**
 button changes exactly that setting.
 
 ## Step 6: Publish and watch real CI (5 min)
@@ -138,7 +151,7 @@ cd /Users/opstree/Documents/github.io/flowforge-demo
 gh pr ready flowforge/onboard       # mark the draft ready
 gh pr merge flowforge/onboard --squash --delete-branch
 git pull
-mkdir -p .github && echo "/.github/ @devopsmaker" > .github/CODEOWNERS
+mkdir -p .github && echo "/.github/ @kioskOG" > .github/CODEOWNERS   # your account
 git add .github/CODEOWNERS && git commit -m "Own the workflows" && git push
 ```
 
@@ -215,7 +228,7 @@ under the PR's **Checks** tab.
 ## Clean up
 
 ```sh
-gh repo delete devopsmaker/flowforge-demo --yes   # needs: gh auth refresh -s delete_repo
+gh repo delete kioskOG/flowforge-demo --yes   # needs: gh auth refresh -s delete_repo
 ```
 
 ## What to tell me afterwards
