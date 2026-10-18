@@ -1,0 +1,878 @@
+{
+  "adapters": [],
+  "files": {
+    ".github/workflows/flowforge-ci.yml": "c7320b91123f3f3333cb0fb3eae69b24b077d46b7f761db9efb70b01cc7aef7f"
+  },
+  "flowforge": "0.1.0",
+  "ledger": {
+    "entries": {
+      "services-orders-go.artifact.dockerfile": {
+        "alternatives": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "excerpt": "RUN CGO_ENABLED=0 go build -o /orders .\n\nFROM gcr.io/distroless/static-debian12:nonroot\nCOPY --from=build /orders /orders\nEXPOSE 8080",
+            "file": "services/orders-go/Dockerfile",
+            "line": 7
+          }
+        ],
+        "evidence_hash": "722f440e058ae2ab",
+        "facts": [
+          "Fe2f2da3ea1"
+        ],
+        "field": "services-orders-go.artifact.dockerfile",
+        "id": "L-4fa8f6",
+        "prod_defining": false,
+        "rationale": "production image from services/orders-go/Dockerfile",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "context": "services/orders-go",
+          "path": "services/orders-go/Dockerfile"
+        }
+      },
+      "services-orders-go.ci.pm": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "2b7ec09acaf1fcdf",
+        "facts": [
+          "F8351cdbff5"
+        ],
+        "field": "services-orders-go.ci.pm",
+        "id": "L-848fae",
+        "prod_defining": false,
+        "rationale": "go detected",
+        "source": "detected",
+        "status": "accepted",
+        "value": "go"
+      },
+      "services-orders-go.ci.runtime": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "bbf1bf722a682345",
+        "facts": [
+          "F1b66f373a7"
+        ],
+        "field": "services-orders-go.ci.runtime",
+        "id": "L-e8ae36",
+        "prod_defining": false,
+        "rationale": "go project",
+        "source": "detected",
+        "status": "accepted",
+        "value": "go"
+      },
+      "services-orders-go.ci.runtime_version": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": 3
+          }
+        ],
+        "evidence_hash": "382e3fed92227138",
+        "facts": [
+          "F155f82437c"
+        ],
+        "field": "services-orders-go.ci.runtime_version",
+        "id": "L-864ca8",
+        "prod_defining": false,
+        "rationale": "go 1.23 pinned",
+        "source": "detected",
+        "status": "accepted",
+        "value": "1.23"
+      },
+      "services-orders-go.ci.step.build": {
+        "alternatives": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": null
+          }
+        ],
+        "evidence_hash": "b7a3ed33afe11837",
+        "facts": [
+          "Fbc07ae9647"
+        ],
+        "field": "services-orders-go.ci.step.build",
+        "id": "L-bc7699",
+        "prod_defining": false,
+        "rationale": "tool:go-build",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "go-build"
+        }
+      },
+      "services-orders-go.ci.step.format_check": {
+        "alternatives": [],
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": null
+          }
+        ],
+        "evidence_hash": "b35f6a316551e30c",
+        "facts": [
+          "F8745268507"
+        ],
+        "field": "services-orders-go.ci.step.format_check",
+        "id": "L-ae657d",
+        "prod_defining": false,
+        "rationale": "set in .flowforge/config.yaml",
+        "source": "user",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "gofmt"
+        }
+      },
+      "services-orders-go.ci.step.install": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "2b7ec09acaf1fcdf",
+        "facts": [
+          "F8351cdbff5"
+        ],
+        "field": "services-orders-go.ci.step.install",
+        "id": "L-946aa6",
+        "prod_defining": false,
+        "rationale": "lockfile-respecting install for go",
+        "source": "default",
+        "status": "accepted",
+        "value": {
+          "kind": "catalog"
+        }
+      },
+      "services-orders-go.ci.step.lint": {
+        "alternatives": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": null
+          }
+        ],
+        "evidence_hash": "6f28b5f88fc2c765",
+        "facts": [
+          "F009e2c6072"
+        ],
+        "field": "services-orders-go.ci.step.lint",
+        "id": "L-d80a8b",
+        "prod_defining": false,
+        "rationale": "tool:go-vet",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "go-vet"
+        }
+      },
+      "services-orders-go.ci.step.unit_test": {
+        "alternatives": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "excerpt": "module example.com/orders\n\ngo 1.23",
+            "file": "services/orders-go/go.mod",
+            "line": null
+          }
+        ],
+        "evidence_hash": "b5516bd1d916d7cb",
+        "facts": [
+          "Fc82af42e79"
+        ],
+        "field": "services-orders-go.ci.step.unit_test",
+        "id": "L-655ccf",
+        "prod_defining": false,
+        "rationale": "tool:go-test",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "go-test"
+        }
+      },
+      "services-orders-go.deploy.target": {
+        "alternatives": [
+          "none",
+          "aws-ec2",
+          "aws-ecs",
+          "aws-eks",
+          "aws-lambda",
+          "aws-lambda-zip",
+          "command",
+          "kubernetes"
+        ],
+        "confidence": 1.0,
+        "evidence": [],
+        "evidence_hash": "",
+        "facts": [],
+        "field": "services-orders-go.deploy.target",
+        "id": "L-140c10",
+        "prod_defining": true,
+        "rationale": "deploy target chosen in .flowforge/config.yaml",
+        "source": "user",
+        "status": "accepted",
+        "value": "none"
+      },
+      "services-pricing-py.ci.installable": {
+        "alternatives": [],
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "excerpt": "",
+            "file": "services/pricing-py/pyproject.toml",
+            "line": null
+          }
+        ],
+        "evidence_hash": "73d5b36112c41d3a",
+        "facts": [
+          "Fc37c8d3b72"
+        ],
+        "field": "services-pricing-py.ci.installable",
+        "id": "L-681777",
+        "prod_defining": false,
+        "rationale": "package metadata present",
+        "source": "detected",
+        "status": "accepted",
+        "value": true
+      },
+      "services-pricing-py.ci.lockfile": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "",
+            "file": "services/pricing-py/uv.lock",
+            "line": null
+          }
+        ],
+        "evidence_hash": "5cfdb31a31d2068e",
+        "facts": [
+          "F09e1110025"
+        ],
+        "field": "services-pricing-py.ci.lockfile",
+        "id": "L-bf9809",
+        "prod_defining": false,
+        "rationale": "lockfile",
+        "source": "detected",
+        "status": "accepted",
+        "value": "services/pricing-py/uv.lock"
+      },
+      "services-pricing-py.ci.pm": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "",
+            "file": "services/pricing-py/uv.lock",
+            "line": null
+          }
+        ],
+        "evidence_hash": "16e4933df631ec39",
+        "facts": [
+          "Fe64cf67f27"
+        ],
+        "field": "services-pricing-py.ci.pm",
+        "id": "L-70819d",
+        "prod_defining": false,
+        "rationale": "uv detected",
+        "source": "detected",
+        "status": "accepted",
+        "value": "uv"
+      },
+      "services-pricing-py.ci.runtime": {
+        "alternatives": [],
+        "confidence": 0.98,
+        "evidence": [
+          {
+            "excerpt": "[project]\nname = \"pricing\"\nversion = \"0.1.0\"",
+            "file": "services/pricing-py/pyproject.toml",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "9eee421257cb7c79",
+        "facts": [
+          "F2cf2d5f178"
+        ],
+        "field": "services-pricing-py.ci.runtime",
+        "id": "L-9ae44f",
+        "prod_defining": false,
+        "rationale": "python project",
+        "source": "detected",
+        "status": "accepted",
+        "value": "python"
+      },
+      "services-pricing-py.ci.runtime_version": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "3.12",
+            "file": "services/pricing-py/.python-version",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "36c1a8c8948fe8b4",
+        "facts": [
+          "F85b65fd9b0"
+        ],
+        "field": "services-pricing-py.ci.runtime_version",
+        "id": "L-0d91d9",
+        "prod_defining": false,
+        "rationale": "python 3.12 pinned",
+        "source": "detected",
+        "status": "accepted",
+        "value": "3.12"
+      },
+      "services-pricing-py.ci.step.install": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "",
+            "file": "services/pricing-py/uv.lock",
+            "line": null
+          }
+        ],
+        "evidence_hash": "16e4933df631ec39",
+        "facts": [
+          "Fe64cf67f27"
+        ],
+        "field": "services-pricing-py.ci.step.install",
+        "id": "L-151c02",
+        "prod_defining": false,
+        "rationale": "lockfile-respecting install for uv",
+        "source": "default",
+        "status": "accepted",
+        "value": {
+          "kind": "catalog"
+        }
+      },
+      "services-pricing-py.ci.step.lint": {
+        "alternatives": [],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "excerpt": "pythonpath = [\"src\"]\n\n[tool.ruff]\nline-length = 100",
+            "file": "services/pricing-py/pyproject.toml",
+            "line": 17
+          }
+        ],
+        "evidence_hash": "2c2f1a4a22563e2f",
+        "facts": [
+          "Ff33b9f3f06"
+        ],
+        "field": "services-pricing-py.ci.step.lint",
+        "id": "L-e9092a",
+        "prod_defining": false,
+        "rationale": "tool:ruff",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "ruff"
+        }
+      },
+      "services-pricing-py.ci.step.unit_test": {
+        "alternatives": [],
+        "confidence": 0.97,
+        "evidence": [
+          {
+            "excerpt": "package = false\n\n[tool.pytest.ini_options]\ntestpaths = [\"tests\"]\npythonpath = [\"src\"]",
+            "file": "services/pricing-py/pyproject.toml",
+            "line": 13
+          }
+        ],
+        "evidence_hash": "9b6b34ee8c7d74d3",
+        "facts": [
+          "F7da2e90b6e"
+        ],
+        "field": "services-pricing-py.ci.step.unit_test",
+        "id": "L-718bd3",
+        "prod_defining": false,
+        "rationale": "tool:pytest",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "tool",
+          "tool": "pytest"
+        }
+      },
+      "services-pricing-py.deploy.target": {
+        "alternatives": [
+          "none",
+          "aws-ec2",
+          "aws-ecs",
+          "aws-eks",
+          "aws-lambda",
+          "aws-lambda-zip",
+          "command",
+          "kubernetes"
+        ],
+        "confidence": 1.0,
+        "evidence": [],
+        "evidence_hash": "",
+        "facts": [],
+        "field": "services-pricing-py.deploy.target",
+        "id": "L-21e97b",
+        "prod_defining": true,
+        "rationale": "deploy target chosen in .flowforge/config.yaml",
+        "source": "user",
+        "status": "accepted",
+        "value": "none"
+      },
+      "web-storefront.ci.lockfile": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "",
+            "file": "web/storefront/package-lock.json",
+            "line": null
+          }
+        ],
+        "evidence_hash": "aebff56eed68c99a",
+        "facts": [
+          "Fee01d575b6"
+        ],
+        "field": "web-storefront.ci.lockfile",
+        "id": "L-173048",
+        "prod_defining": false,
+        "rationale": "lockfile",
+        "source": "detected",
+        "status": "accepted",
+        "value": "web/storefront/package-lock.json"
+      },
+      "web-storefront.ci.pm": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "{\n  \"name\": \"storefront\",\n  \"version\": \"0.1.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,",
+            "file": "web/storefront/package-lock.json",
+            "line": null
+          }
+        ],
+        "evidence_hash": "1291e06fe185abc4",
+        "facts": [
+          "F92626a56c7"
+        ],
+        "field": "web-storefront.ci.pm",
+        "id": "L-c9e343",
+        "prod_defining": false,
+        "rationale": "npm detected",
+        "source": "detected",
+        "status": "accepted",
+        "value": "npm"
+      },
+      "web-storefront.ci.runtime": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "{\n  \"name\": \"storefront\",\n  \"version\": \"0.1.0\",",
+            "file": "web/storefront/package.json",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "cc5fa53d68272e66",
+        "facts": [
+          "Faf5ae99a6b"
+        ],
+        "field": "web-storefront.ci.runtime",
+        "id": "L-c383c3",
+        "prod_defining": false,
+        "rationale": "node project",
+        "source": "detected",
+        "status": "accepted",
+        "value": "node"
+      },
+      "web-storefront.ci.runtime_version": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "22",
+            "file": "web/storefront/.nvmrc",
+            "line": 1
+          }
+        ],
+        "evidence_hash": "c385d3459c843a8c",
+        "facts": [
+          "F8b58b65278"
+        ],
+        "field": "web-storefront.ci.runtime_version",
+        "id": "L-268ea1",
+        "prod_defining": false,
+        "rationale": "node 22 pinned",
+        "source": "detected",
+        "status": "accepted",
+        "value": "22"
+      },
+      "web-storefront.ci.step.build": {
+        "alternatives": [],
+        "confidence": 0.95,
+        "evidence": [
+          {
+            "excerpt": "  \"scripts\": {\n    \"test\": \"node --test\",\n    \"build\": \"node scripts/build.js\"\n  }\n}",
+            "file": "web/storefront/package.json",
+            "line": 9
+          }
+        ],
+        "evidence_hash": "17d34afba588c461",
+        "facts": [
+          "F64bd07be24"
+        ],
+        "field": "web-storefront.ci.step.build",
+        "id": "L-10fac5",
+        "prod_defining": false,
+        "rationale": "package.json#scripts.build",
+        "source": "detected",
+        "status": "accepted",
+        "value": {
+          "kind": "ref",
+          "ref": "package.json#scripts.build"
+        }
+      },
+      "web-storefront.ci.step.install": {
+        "alternatives": [],
+        "confidence": 0.99,
+        "evidence": [
+          {
+            "excerpt": "{\n  \"name\": \"storefront\",\n  \"version\": \"0.1.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,",
+            "file": "web/storefront/package-lock.json",
+            "line": null
+          }
+        ],
+        "evidence_hash": "1291e06fe185abc4",
+        "facts": [
+          "F92626a56c7"
+        ],
+        "field": "web-storefront.ci.step.install",
+        "id": "L-84b71e",
+        "prod_defining": false,
+        "rationale": "lockfile-respecting install for npm",
+        "source": "default",
+        "status": "accepted",
+        "value": {
+          "kind": "catalog"
+        }
+      },
+      "web-storefront.ci.step.unit_test": {
+        "alternatives": [],
+        "confidence": 1.0,
+        "evidence": [
+          {
+            "excerpt": "  \"engines\": { \"node\": \">=22\" },\n  \"scripts\": {\n    \"test\": \"node --test\",\n    \"build\": \"node scripts/build.js\"\n  }",
+            "file": "web/storefront/package.json",
+            "line": 8
+          }
+        ],
+        "evidence_hash": "9daecf4982ef4ff5",
+        "facts": [
+          "F285abe52c0"
+        ],
+        "field": "web-storefront.ci.step.unit_test",
+        "id": "L-bc801c",
+        "prod_defining": false,
+        "rationale": "set in .flowforge/config.yaml",
+        "source": "user",
+        "status": "accepted",
+        "value": {
+          "kind": "run",
+          "run": "npm test -- --test-reporter=spec"
+        }
+      },
+      "web-storefront.deploy.target": {
+        "alternatives": [
+          "none",
+          "aws-ec2",
+          "aws-ecs",
+          "aws-eks",
+          "aws-lambda",
+          "aws-lambda-zip",
+          "command",
+          "kubernetes"
+        ],
+        "confidence": 1.0,
+        "evidence": [],
+        "evidence_hash": "",
+        "facts": [],
+        "field": "web-storefront.deploy.target",
+        "id": "L-4c6de4",
+        "prod_defining": true,
+        "rationale": "deploy target chosen in .flowforge/config.yaml",
+        "source": "user",
+        "status": "accepted",
+        "value": "none"
+      }
+    }
+  },
+  "lock_version": 1,
+  "pim": {
+    "components": [
+      {
+        "artifacts": [
+          {
+            "context": "services/orders-go",
+            "dockerfile": "services/orders-go/Dockerfile",
+            "type": "oci_image"
+          }
+        ],
+        "ci": {
+          "services": [],
+          "setup": {
+            "installable": false,
+            "lockfile": null,
+            "options": {},
+            "pm": "go",
+            "pm_version": null,
+            "requirements": [],
+            "runtime": "go",
+            "version": "1.23",
+            "yarn_flavor": null
+          },
+          "steps": [
+            {
+              "command": {
+                "kind": "catalog",
+                "ref": null,
+                "run": null,
+                "tool": null
+              },
+              "kind": "install",
+              "ledger": "services-orders-go.ci.step.install"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "gofmt"
+              },
+              "kind": "format_check",
+              "ledger": "services-orders-go.ci.step.format_check"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "go-vet"
+              },
+              "kind": "lint",
+              "ledger": "services-orders-go.ci.step.lint"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "go-test"
+              },
+              "kind": "unit_test",
+              "ledger": "services-orders-go.ci.step.unit_test"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "go-build"
+              },
+              "kind": "build",
+              "ledger": "services-orders-go.ci.step.build"
+            }
+          ]
+        },
+        "deploy": {
+          "github_environments": true,
+          "values_from": "config",
+          "workflow_style": "standalone"
+        },
+        "environments": [],
+        "id": "services-orders-go",
+        "path": "services/orders-go",
+        "supply_chain": {
+          "provenance": true,
+          "sbom": true,
+          "sign": "cosign-keyless",
+          "vuln_fail_severity": "CRITICAL,HIGH"
+        }
+      },
+      {
+        "artifacts": [],
+        "ci": {
+          "services": [],
+          "setup": {
+            "installable": true,
+            "lockfile": "services/pricing-py/uv.lock",
+            "options": {},
+            "pm": "uv",
+            "pm_version": null,
+            "requirements": [],
+            "runtime": "python",
+            "version": "3.12",
+            "yarn_flavor": null
+          },
+          "steps": [
+            {
+              "command": {
+                "kind": "catalog",
+                "ref": null,
+                "run": null,
+                "tool": null
+              },
+              "kind": "install",
+              "ledger": "services-pricing-py.ci.step.install"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "ruff"
+              },
+              "kind": "lint",
+              "ledger": "services-pricing-py.ci.step.lint"
+            },
+            {
+              "command": {
+                "kind": "tool",
+                "ref": null,
+                "run": null,
+                "tool": "pytest"
+              },
+              "kind": "unit_test",
+              "ledger": "services-pricing-py.ci.step.unit_test"
+            }
+          ]
+        },
+        "deploy": {
+          "github_environments": true,
+          "values_from": "config",
+          "workflow_style": "standalone"
+        },
+        "environments": [],
+        "id": "services-pricing-py",
+        "path": "services/pricing-py",
+        "supply_chain": {
+          "provenance": true,
+          "sbom": true,
+          "sign": "cosign-keyless",
+          "vuln_fail_severity": "CRITICAL,HIGH"
+        }
+      },
+      {
+        "artifacts": [],
+        "ci": {
+          "services": [],
+          "setup": {
+            "installable": false,
+            "lockfile": "web/storefront/package-lock.json",
+            "options": {},
+            "pm": "npm",
+            "pm_version": null,
+            "requirements": [],
+            "runtime": "node",
+            "version": "22",
+            "yarn_flavor": null
+          },
+          "steps": [
+            {
+              "command": {
+                "kind": "catalog",
+                "ref": null,
+                "run": null,
+                "tool": null
+              },
+              "kind": "install",
+              "ledger": "web-storefront.ci.step.install"
+            },
+            {
+              "command": {
+                "kind": "run",
+                "ref": null,
+                "run": "npm test -- --test-reporter=spec",
+                "tool": null
+              },
+              "kind": "unit_test",
+              "ledger": "web-storefront.ci.step.unit_test"
+            },
+            {
+              "command": {
+                "kind": "ref",
+                "ref": "package.json#scripts.build",
+                "run": null,
+                "tool": null
+              },
+              "kind": "build",
+              "ledger": "web-storefront.ci.step.build"
+            }
+          ]
+        },
+        "deploy": {
+          "github_environments": true,
+          "values_from": "config",
+          "workflow_style": "standalone"
+        },
+        "environments": [],
+        "id": "web-storefront",
+        "path": "web/storefront",
+        "supply_chain": {
+          "provenance": true,
+          "sbom": true,
+          "sign": "cosign-keyless",
+          "vuln_fail_severity": "CRITICAL,HIGH"
+        }
+      }
+    ],
+    "deploy_timeout_minutes": 30,
+    "harden_runner": false,
+    "job_timeout_minutes": 20,
+    "pim_version": 1,
+    "repo": {
+      "default_branch": "main",
+      "id": 1424145015,
+      "name": "flowforge-demo",
+      "owner": "kioskOG",
+      "owner_id": 31181135
+    },
+    "runner": "ubuntu-latest",
+    "source_scan": {
+      "severity": "CRITICAL"
+    }
+  },
+  "pim_hash": "b2bdbca28aed56d7",
+  "renderer": "1.1.0"
+}
